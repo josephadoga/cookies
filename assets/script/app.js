@@ -13,8 +13,16 @@ const settingsDialog = select('.two');
 const blurCover = select('.cover');
 const acceptButton = select('.accept');
 const settingsButton = select('.settings');
+const prefButton = select('.save-settings');
+
+const browserCheck = select('.browser-check');
+const osCheck = select('.os-check');
+const widthCheck = select('.width-check');
+const heightCheck =select('.height-check');
 
 const { log } = console;
+
+const LIFETIME = 15;
 
 function showCookieDialog() {
     blurCover.classList.add('isvisible');
@@ -24,6 +32,7 @@ function showCookieDialog() {
 function hideCookieDialog() {
     blurCover.classList.remove('isvisible');
     cookieDialog.classList.remove('isvisible');
+    settingsDialog.classList.remove('isvisible');
 }
 
 function showSettingsDialog() {
@@ -61,15 +70,99 @@ function getOS() {
 }
 
 function getScreenWidth() {
-    return window.screen.width;
+    return window.innerWidth;
 }
 
 function getScreenHeight() {
-    return window.screen.height;
+    return window.innerHeight;
 }
 
+
+function setCookie(name, value, maxAge) {
+    const options = {
+        path: '/',
+        SameSite: 'Lax'
+    }
+
+    const encodedName = encodeURIComponent(name);
+    const encodedValue = encodeURIComponent(value);
+
+    document.cookie = `${encodedName}=${encodedValue}; max-age=${maxAge}; path=${options.path}; SameSite=${options.SameSite}`;
+}
+
+
+function getCookie(name) {
+    // Split cookie string and get all individual name=value pairs in an array
+    let cookieArray = document.cookie.split(";");
+    
+    // Loop through the array elements
+    for(let i = 0; i < cookieArray.length; i++) {
+        let cookiePair = cookieArray[i].split("=");
+        
+        if(name == cookiePair[0].trim()) {
+            // Decode the cookie value and return
+            return `${name} = ${decodeURIComponent(cookiePair[1])}`;
+        }
+    }
+    return `${name} = rejected`;
+}
+
+
+
+function setBrowserCookie() {
+    let browserName = getBrowser();
+    setCookie('Browser', browserName, LIFETIME);
+}
+
+function setOSCookie() {
+    let OSName = getOS();
+    setCookie('OS', OSName, LIFETIME);
+}
+
+function setWidthCookie() {
+    let widthLength = getScreenWidth();
+    setCookie('screenWidth', widthLength, LIFETIME);
+}
+
+function setHeightCookie() {
+    let widthHeight = getScreenHeight();
+    setCookie('screenHeight', widthHeight, LIFETIME)
+}
+
+function acceptPreferences() {
+    if (browserCheck.checked) {
+        setBrowserCookie();
+    }
+
+    if (osCheck.checked) {
+        setOSCookie();
+    }
+
+    if (widthCheck.checked) {
+        setWidthCookie();
+    }
+
+    if (heightCheck.checked) {
+        setHeightCookie();
+    }
+}
+
+function checkCookies() {
+    console.log(getCookie('Browser'))
+    console.log(getCookie('OS'));
+    console.log(getCookie('screenWidth'));
+    console.log(getCookie('screenHeight'));
+}
+
+
+
 listen('load', window, function() {
-    showCookieDialog();
+    if (document.cookie.length > 0) {
+        checkCookies()
+    } else {
+        showCookieDialog();
+        checkCookies()
+    }
 });
 
 listen('click', settingsButton, function() {
@@ -78,5 +171,16 @@ listen('click', settingsButton, function() {
 });
 
 listen('click', acceptButton, function() {
+    setBrowserCookie();
+    setOSCookie();
+    setWidthCookie();
+    setHeightCookie();
+    checkCookies();
+    hideCookieDialog();
+});
+
+listen('click', prefButton, function() {
+    acceptPreferences();
+    checkCookies();
     hideCookieDialog();
 });
