@@ -1,7 +1,7 @@
 {
   "name": "modules",
   "version": "1.0.0",
-  "description": "Custom Props",
+  "description": "Cookies",
   "main": "app.js",
   "scripts": {
     "start": "lite-server"

@@ -68,6 +68,7 @@ body {
     cursor: default;
     overflow: hidden;
     z-index: 9999;
+    transition: all 0.3s ease-in-out;
     -webkit-transform: translate(-50%, -52%);
        -moz-transform: translate(-50%, -52%);
            transform: translate(-50%, -52%);
@@ -86,6 +87,9 @@ body {
     z-index: 9999;
     opacity: 1;
     visibility: visible;
+    -webkit-transform: translate(-50%, -50%);
+       -moz-transform: translate(-50%, -50%);
+           transform: translate(-50%, -50%);
 }
 
 .one p {
