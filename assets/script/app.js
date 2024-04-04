@@ -160,8 +160,8 @@ listen('load', window, function() {
     if (document.cookie.length > 0) {
         checkCookies()
     } else {
+        console.log('No cookies found');
         showCookieDialog();
-        checkCookies()
     }
 });
 
