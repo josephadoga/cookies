@@ -13,16 +13,67 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600;6..12,700&display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
         <link rel="stylesheet" type="text/css" href="./assets/style/index.css" media="all">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600;6..12,700&family=Source+Code+Pro:wght@400;500;600;700&display=swap">#
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600;6..12,700&family=Source+Code+Pro:wght@400;500;600;700&display=swap">
         <script src="./assets/script/app.js" defer></script>
     </head>
     <body>
         <main>
             <div class="container center">
                 <div class="content">
-                    <div class="dialog"></div>
+                    <div class="dialog one">
+                        <h2>Cookies</h2>
+                        <p>
+                            We use cookies to improve your experience on our website. By
+                            clicking "Accept", you agree to the use of cookies for
+                            marketing and analytics purposes.
+                        </p>
+                        <div class="buttons flex gap-15">
+                            <button type="button" class="accept">Accept</button>
+                            <button type="button" class="settings">Settings</button>
+                        </div>
+                    </div>
+                    <div class="dialog two">
+                        <h2>Settings</h2>
+                        <div class="flex space-between">
+                            <p>Browser</p>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="flex space-between">
+                            <p>Operating System</p>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="flex space-between">
+                            <p>Screen width</p>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="flex space-between">
+                            <p>Screen height</p>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="button" class="save-settings">Save Preferences</button>
+                    </div>
                     <div class="cover"></div>
-                    <p>
+                    <p class="paragraph">
                         A <span class="purple">cookie</span> is a small piece of text sent
                         to your browser by a website you visit. It helps the site remember
                         <span class="orange">information</span> about your visit, which

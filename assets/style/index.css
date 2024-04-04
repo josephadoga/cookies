@@ -16,13 +16,30 @@ body {
     font-family: 'Nunito Sans', 'Arial';
 }
 
+.flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
 .center {
     height: 100dvh;
     display: grid;
     place-items: center;
 }
 
-p {
+.center-b {
+    display: grid;
+    place-items: center;
+}
+
+.gap-15 {
+    gap: 15px;
+}
+
+.paragraph {
     color: #fff;
     font-size: 30px;
     font-weight: 600;
@@ -38,4 +55,170 @@ p {
 
 .green {
     color: #00ff00;
+}
+
+.dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 34rem;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 6px;
+    cursor: default;
+    overflow: hidden;
+    z-index: 9999;
+    -webkit-transform: translate(-50%, -52%);
+       -moz-transform: translate(-50%, -52%);
+           transform: translate(-50%, -52%);
+}
+
+.dialog div + div {
+    margin-top: 15px;
+}
+
+.one {
+    width: 300px;
+    visibility: hidden;
+}
+
+.one.isvisible {
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+}
+
+.one p {
+    margin-top: 20px;
+}
+
+.two {
+    width: 300px;
+    visibility: hidden;
+}
+
+.two.isvisible {
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+}
+
+.two h2 + div{
+    margin-top: 20px;
+}
+
+.two p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+button {
+    margin-top: 20px;
+    width: 100px;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+    font-weight: 600;
+}
+
+button:hover {
+    transform: translateY(-3px);
+}
+
+.accept {
+    padding: 8px 10px;
+    border-radius: 50px;
+    background-color: #3C57FF;
+    color: #fff;
+}
+
+.settings {
+    padding: 8px 20px;
+    border-radius: 50px;
+    border: 1px solid #3C57FF;
+    background-color: #fff;
+    color: #3C57FF;
+}
+
+.save-settings {
+    padding: 8px 10px;
+    width: 180px;
+    border-radius: 50px;
+    background-color: #3C57FF;
+    color: #fff;
+}
+
+.cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 5555;
+    opacity: 0; 
+    visibility: hidden;
+    backdrop-filter: blur(8px);
+    cursor: pointer
+}
+
+.cover.isvisible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 53px;
+    height: 26px;
+}
+  
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: #3C57FF;
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+  
+  /* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
 }
