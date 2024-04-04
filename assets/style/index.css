@@ -16,8 +16,16 @@ body {
     font-family: 'Nunito Sans', 'Arial';
 }
 
+.center {
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+}
+
 p {
     color: #fff;
+    font-size: 30px;
+    font-weight: 600;
 }
 
 .purple {
